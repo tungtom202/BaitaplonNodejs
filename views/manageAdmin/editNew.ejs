@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords"
+        content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Ample lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Ample admin lite dashboard bootstrap 5 dashboard template">
+    <meta name="description"
+        content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Edit New</title>
+    <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/iconnew.png">
+
+    <!-- Custom CSS -->
+   <link href="/bootstrap/css/style.min.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+  
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper"  data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+      
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+       
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper" style="margin-left: 0 !important;">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb bg-white">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Update News</h4>
+                    </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                        
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <!-- Row -->
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-4 col-xlg-3 col-md-12">
+                        <div class="white-box">
+                            <div class="user-bg"> <img width="100%" alt="user" src="/bootstrap/plugins/images/large/img1.jpg">
+                                <div class="overlay-box">
+                                    <div class="user-content">
+                                        <a href="javascript:void(0)"><img src="/upload/<%= avarta  %>"
+                                                class="thumb-lg img-circle" alt="img"></a>
+                                        <h3><%= userName %></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user-btm-box mt-5 d-md-flex">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="col-lg-8 col-xlg-9 col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <% results.forEach(function(item) { %>
+                                    <form class="form-horizontal form-material" action="../editNew/<%= item.id %>" method="POST" enctype="multipart/form-data">
+                                        <div class="form-group mb-4">
+                                            <label class="col-md-12 p-0">Title</label>
+                                            <div class="col-md-12 border-bottom p-0">
+                                              <input type="text" name="title" id="title" class="form-control p-0 border-0" value="<%= item.title %>">
+                                            </div>
+                                          </div>
+                                          
+                                          <div class="form-group mb-4">
+                                            <label class="col-md-12 p-0">Img Cũ</label>
+                                            <div class="col-md-12 border-bottom p-0">
+                                                <img src="../../upload/<%= item.img %>" width="150px" alt="">
+                                            </div>
+                                          </div>
+                                          <div class="form-group mb-4">
+                                            <label class="col-md-12 p-0">Img</label>
+                                            <div class="col-md-12 border-bottom p-0">
+                                              <input type="file" name="uploadfile" id="uploadfile" class="form-control p-0 border-0">
+                                            </div>
+                                          </div>
+                                          <div class="form-group mb-4">
+                                              <label class="col-md-12 p-0">Content</label>
+                                              <div class="col-md-12 border-bottom p-0">
+                                                <input type="text" name="content" id="content" class="form-control p-0 border-0" value="<%= item.content %>">
+                                              </div>
+                                            </div>
+                                            <div class="form-group mb-4">
+                                              <label class="col-md-12 p-0">Published</label>
+                                              <div class="col-md-12 border-bottom p-0">
+                                                <input type="text" name="published" id="published" class="form-control p-0 border-0" value="<%= item.published %>">
+                                              </div>
+                                            </div>
+                                            <div class="form-group mb-4">
+                                              <label class="col-md-12 p-0">Genre</label>
+                                              <div class="col-md-12 border-bottom p-0">
+                                                <select name="genre" id="genre" class="form-control p-0 border-0">
+                                                  <% topicsall.forEach(function(topic) { %>
+                                                      <option value="<%= topic.name %>" <%= topic.name === item.genre ? 'selected' : '' %>><%= topic.name %></option>
+                                                  <% }); %>
+                                                </select>
+                                                <!-- <input type="text" name="genre" id="genre" class="form-control p-0 border-0" value=""> -->
+                                              </div>
+                                            </div>
+                                            <div class="form-group mb-4">
+                                              <label class="col-md-12 p-0">Newviews</label>
+                                              <div class="col-md-12 border-bottom p-0">
+                                                <input type="text" name="newviews" id="newviews" class="form-control p-0 border-0" value="<%= item.newviews %>">
+                                              </div>
+                                            </div>
+                                            <div class="form-group mb-4">
+                                              <label class="col-md-12 p-0">Poststatus</label>
+                                              <div class="col-md-12 border-bottom p-0">
+                                                <input type="text" name="poststatus" id="poststatus" class="form-control p-0 border-0" value="<%= item.poststatus %>">
+                                              </div>
+                                            </div>
+                                          <div class="form-group mb-4">
+                                            <label class="col-md-12 p-0">Catergory ID</label>
+                                            <div class="col-md-12 border-bottom p-0">
+                                              <select name="categoryId" id="categoryId" class="form-control p-0 border-0">
+                                                <% categoryall.forEach(function(category) { %>
+                                                    <option value="<%= category.id %>" <%= category.id === item.categoryId ? 'selected' : '' %>><%= category.id %></option>
+                                                <% }); %>
+                                              </select>
+                                            </div>
+                                          </div>
+                                          <div class="form-group mb-4">
+                                            <div class="col-sm-12">
+                                              <button type="submit" class="btn btn-success">Edit New</button>
+                                            </div>
+                                          </div>
+                                    </form>
+                                  <% }); %>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+               
+            </div>
+           
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+  
+    <script src="/bootstrap/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="/bootstrap/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/bootstrap/js/app-style-switcher.js"></script>
+    <!--Wave Effects -->
+    <script src="/bootstrap/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="/bootstrap/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="/bootstrap/js/custom.js"></script> 
+</body>
+
+</html>

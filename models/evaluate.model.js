@@ -5,7 +5,11 @@ module.exports = (sequelize, Sequelize) => {
         },
         likes: {
             type: Sequelize.STRING
+        },
+        email: {
+            type: Sequelize.STRING
         }
+        
     });
     return Evaluate;
 };

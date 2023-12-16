@@ -1,0 +1,54 @@
+#slideshow { 
+  position: relative; 
+  width: 240px; 
+  height: 240px; 
+  padding: 10px; 
+  box-shadow: 0 0 20px rgba(0,0,0,0.4); 
+}
+.w3-section{
+}
+.mySlides{
+  width: 860px;
+  height: 366px;
+
+}
+#slideshow > div { 
+  position: absolute; 
+  top: 10px; 
+  left: 10px; 
+  right: 10px; 
+  bottom: 10px; 
+}
+.image-caption {
+  position: absolute;
+  top: 38%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 280px;
+  font-size: 16px;
+  white-space: normal;
+  animation: slideLeft 10s infinite;
+}
+@keyframes slideLeft {
+  0% { left: 70%; }
+  100% { left: 66%; }
+}
+.titleh3 {
+  color: #222222;
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+.titleh3 a{
+  text-decoration: none;
+}
+.titlespan {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: #666666;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5; /* Điều chỉnh giá trị này để xác định số dòng tối đa */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,115 @@
+
+
+
+
+.container > h1 {
+  font-size: 2rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.vegetables {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+.list {
+  width: 100%;
+  flex-shrink: 0;
+  transition: transform cubic-bezier(0.18, 0.89, 0.32, 1.28) 512ms;
+}
+.list li {
+  text-align: center;
+  width: 100%;
+  padding: 1rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.pagination {
+  width: 100%;
+  padding: 0 1rem;
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+.pagination:not(:has(.page-btn:target)) .page-step[data-shown="1"] {
+  display: inline-flex;
+}
+.pagination:not(:has(.page-btn:target)) #page-1 {
+  color: #ffffff;
+  background-color: #1b95ff;
+}
+
+.page-btn {
+  color: #000000;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 0.25rem;
+  display: inline-flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+}
+.page-btn:last-child {
+  margin-right: 0;
+}
+.page-btn:is(a) {
+  text-decoration: none;
+  background-color: #ffffff;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: color 128ms ease-out, background-color 128ms ease-out;
+}
+.page-btn:is(a):not(:target):hover, .page-btn:is(a):not(:target):focus, .page-btn:is(a):not(:target):active {
+  background-color: #dfdfdf;
+}
+.page-btn:is(a):target {
+  color: #ffffff;
+  background-color: #1b95ff;
+}
+
+.page-num {
+  display: none;
+}
+
+.page-step {
+  display: none;
+}
+
+.container:has(#page-1:target) > .vegetables > .list {
+  transform: translateX(0%);
+}
+.container:has(#page-1:target) .page-step[data-shown="1"] {
+  display: inline-flex;
+}
+
+.container:has(#page-2:target) > .vegetables > .list {
+  transform: translateX(-100%);
+}
+.container:has(#page-2:target) .page-step[data-shown="2"] {
+  display: inline-flex;
+}
+
+.container:has(#page-3:target) > .vegetables > .list {
+  transform: translateX(-200%);
+}
+.container:has(#page-3:target) .page-step[data-shown="3"] {
+  display: inline-flex;
+}
+
+.container:has(#page-4:target) > .vegetables > .list {
+  transform: translateX(-300%);
+}
+.container:has(#page-4:target) .page-step[data-shown="4"] {
+  display: inline-flex;
+}
+
+.container:has(#page-5:target) > .vegetables > .list {
+  transform: translateX(-400%);
+}
+.container:has(#page-5:target) .page-step[data-shown="5"] {
+  display: inline-flex;
+}

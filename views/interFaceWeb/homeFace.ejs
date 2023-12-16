@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link rel="stylesheet" href="../frontend/css/style.css">
+    <link rel="stylesheet" href="../frontend/css/slide.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/e30bada3ef.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/iconnew.png">
+
+</head>
+
+<body>
+    <!-- đầu trang -->
+    <header class="site-header">
+        <div class="topbar">
+            <div class="grid container">
+                <div class="row row-auto">
+                    <!-- ngày - tháng - năm -->
+                    <div id="currentDate" class="me-auto col">
+                        <!-- Friday, October 27 2023 -->
+                    </div>
+                    <ul class="ms-auto col">
+                        <li><a href="">News</a></li>
+                        <li><a href="">bizhub.vn</a></li>
+                        <li><a href="">ovietnam.vn</a></li>
+                        <li><a href="">About Us</a></li>
+                        <li><a href="">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="site-header__content">
+            <div class="site-header__content-container container">
+                <div class="row site-header__content-row">
+                    <div class="site-header__content-logo logotop1" style="width: 234px; padding: 0;">
+                        <a href="">
+                            <img src="../frontend/img/mecury.gif" alt="">
+                        </a>
+                    </div>
+                    <div class="site-header__content-logo logotop2" style="width: 310px; padding: 0;">
+                        <a href="">
+                            <img src="../frontend/img/vietnamnews.JPG" alt="">
+                        </a>
+                    </div>
+                    <div class="site-header__content-logo logotop3" style="width: 234px; padding: 0;">
+                        <a href="">
+                            <img src="../frontend/img/company.gif" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="site-header_nav">
+            <div class="container-fluid l-grid site-header_nav-container">
+                <a href="#" class="nav-item"><i class="fa-solid fa-house"></i></a>
+                <% topicData.forEach(function(item) { %>
+                <a href="topicFace/<%= item.id %>" class="nav-item"><%= item.name %></a>
+                <% }); %>
+                
+
+            </div>
+            <!-- nav-ultilites -->
+            <div class="nav-ultilites navbar ">
+                <div class="container-fluid navbar-container">
+
+                    <div class="blox-relative">
+                        <div class="search-form">
+                            <input id="search-input" class="form-control" placeholder="Tìm kiếm...">
+                          </div>
+                          
+                        
+                        <!-- social -->
+                        <div class="social">
+                            <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href=""><i class="fa-brands fa-twitter"></i></a>
+                            <a href=""><i class="fa-brands fa-youtube"></i></a>
+                            <a href=""><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <!-- dropdown -->
+                    <div class="dropdown">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <div class="container container_content">
+        <div class="site-content">
+            <div class="focus">
+                <ul class="list-focus">
+                    <li><a href="">FOCUS</a></li>
+                    <li><a href="">UKVFTA</a></li>
+                    <li><a href="">Hanoi today</a></li>
+                    <li><a href="">Vietnam-Japan Green Cooperation</a></li>
+                    <li><a href="">Ho Chi Minh City in focus</a></li>
+                    <li><a href="">Quang Ninh in focus</a></li>
+                </ul>
+            </div>
+            <!-- bên trái -->
+            <div class="content-left">
+                <div class="slick-track">
+                    <div class="slick-meta">
+                        <div class="w3-content w3-section">
+                            <% newSlideData.forEach(function(item) { %>
+                                <div class="mySlides w3-animate-top">
+                                    <a href="newDetail/<%= item.id  %>">
+                                        <img src="../upload/<%= item.img %>" style="width:550px; height:366px">
+                                    </a>
+                                    <span class="image-caption">
+                                        <h3 class="titleh3">
+                                            <a href="newDetail/<%= item.id  %>">
+                                                <%= item.title %>
+                                            </a>
+                                        </h3>
+                                        <span class="titlespan">
+                                            <%= item.content %>
+                                        </span>
+                                    </span>
+                                </div>
+                            <% }); %>
+
+                            <!-- <div class="mySlides w3-animate-bottom">
+                                <img src="../frontend/img/slide/anh4.jpg" style="width:550px; height:366px">
+                                <span class="image-caption">
+                                    <h3 class="titleh3"><a href="#">
+                                            Nearly 200 cases of trade violations have been handled in 2023
+                                        </a>
+                                    </h3>
+                                    <span class="titlespan">
+                                        Deputies questioned Minister of the Ministry of Industry and Trade (MoIT) Nguyễn
+                                        Hồng Diên on the second day of the questioning and answering session at the
+                                        National Assembly, on November 7.
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="mySlides w3-animate-top">
+                                <img src="../frontend/img/slide/anh2.jpg" style="width:550px; height:366px">
+                                <span class="image-caption">
+                                    <h3 class="titleh3"><a href="#">
+                                            Investor fined $5,140 for environmental shortcomings in project in Hạ Long
+                                            Bay's buffer zone
+                                        </a>
+                                    </h3>
+                                    <span class="titlespan">
+                                        The decision was issued by the inspectors of the Quảng Ninh Province's
+                                        Department of Natural Resources and Environment on Tuesday.
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="mySlides w3-animate-bottom">
+                                <img src="../frontend/img/slide/anh3.jpg" style="width:550px; height:366px">
+                                <span class="image-caption">
+                                    <h3 class="titleh3"><a href="#">
+                                            Project on development of southern region’s ports and logistics corridors
+                                            approved
+                                        </a>
+                                    </h3>
+                                    <span class="titlespan">
+                                        The project's primary goal is to enhance the region's infrastructure system,
+                                        reduce congestion, accidents, and lower the cost of waterway goods
+                                        transportation by renovating and upgrading the East-West.
+                                    </span>
+                                </span>
+                            </div> -->
+                        </div>
+                        <div class="row slick-meta-bottom">
+                            <% newLawsData.forEach(function(item) { %>
+                            <div class="col bottom-left">
+                                <a class="linkimg" href="newDetail/<%= item.id  %>">
+                                    <img src="../upload/<%= item.img %>" >
+                                    <div class="imag-caption">
+                                        <h3>
+                                            Politics & Laws</h3>
+                                        <span class="titlespan"> <%= item.title %></span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <!-- giữa -->
+                            
+                        
+                            <% }); %>
+                        </div>
+                        <div class="highlight">
+                            <ul>
+                                <li> HIGHLIGHT</li>
+                            </ul>
+                            <div class="line"></div>
+                        </div>
+                        <!-- newspaper -->
+                        <div class="newspaper">
+                            <div class="row article">
+                            <% newEconomyData.forEach(function(item) { %>
+
+                                <div class="col card-article-left">
+                                    <a class="card-article-left-link" href="newDetail/<%= item.id  %>"><img src="../upload/<%= item.img %>" ></a>
+                                    <div>
+                                        <a href="newDetail/<%= item.id  %>" class="story-link">Economy</a> <br>
+                                        <a href="newDetail/<%= item.id  %>" class="story-title "><%= item.title %></a>
+
+                                    </div>
+                                </div>
+                            <% }); %>
+
+                                <!-- <div class="col card-article-center">
+                                    <div class="col card-article-left">
+                                        <a class="card-article-left-link" href=""><img src="../frontend/img/bao/bao2.jpg"
+                                                alt=""></a>
+                                        <div>
+                                            <a href="" class="story-link">Economy</a> <br>
+                                            <a href="" class="story-title ">Salary reform: expectations and concerns</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col card-article-right">
+                                    <div class="col card-article-left">
+                                        <a class="card-article-left-link" href=""><img src="../frontend/img/bao/bao3.jpg"
+                                                alt=""></a>
+                                        <div>
+                                            <a href="" class="story-link">Economy</a> <br>
+                                            <a href="" class="story-title ">Salary reform: expectations and concerns</a>
+
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="row">
+                            
+                            <!-- Area Chart -->
+                            <% HotLuotXemData.forEach(function(item) { %>
+                                    <div class="card col-cards">
+                                        <a class="wraphot"  href="newDetail/<%= item.id  %>">
+                                            <span class="hot"> Hot</span>
+                                            <img src="../upload/<%= item.img  %>" class="card-img-top" alt="...">
+                                        <a href="#" class="story-link story-linkhe"><%= item.genre %></a> <br>
+
+                            </a>
+                            <div class="card-body card-body_real">
+                                <a href="newDetail/<%= item.id  %>">
+                                    <h6 class="card-title story-title story-title_lx"><b><%= item.title %></b></h6>
+                                </a>
+                                <p class=" card-text  td_vip"><%= item.content %></p>
+                            </div>
+                            </div>
+                        
+                    <% }); %>
+
+                
+            </div>
+                        <br>
+                        <!-- banner -->
+                        <div class="banner-ngang">
+                            <div>
+                                <img src="../frontend/img/Banner/banner6.jpg" alt="">
+                                <img src="../frontend/img/Banner/banner7.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="zone-cate">
+                            
+                            <header class="zone-heading ">
+                                <ul>
+                                    <li><span style="color:#fcb500">P</span>OLITICS & LAWS</li>
+                                </ul>
+                                <div class="line line2"></div>
+                            </header>
+                            <div class="row zone-content">
+                                
+                                <div class="col-4 focus-col">
+                                    <% newLawsBottomData.forEach(function(item) { %>
+                                    <a href="newDetail/<%= item.id  %>"><img src="../upload/<%= item.img %>" alt=""></a>
+                                    <div class="storytitle-links">
+                                        <a class=" story-title" href="newDetail/<%= item.id  %>"><%= item.title %></a>
+                                    </div>
+                                    
+
+                                    <% }); %>
+                                </div>
+
+                                <div class="col-8 story-news">
+                                    <% newLawsBottomLeftData.forEach(function(item) { %>
+
+                                    <a href="newDetail/<%= item.id  %>">
+                                        <img src="../upload/<%= item.img %>" alt=""></a>
+                                    <div class="heading-title2">
+                                        <a class="story-title" href="newDetail/<%= item.id  %>"><%= item.title %></a>
+                                    </div>
+                                    <span class="summary titlespan"><%= item.content %></span>
+                                        <% }); %>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- SOCIETY -->
+                        <div class="kc"></div>
+                        <div class="zone-cate">
+                            
+                            <header class="zone-heading ">
+                                <ul>
+                                    <li><span style="color:#fcb500">S</span>OCIETY</li>
+                                </ul>
+                                <div class="line line2"></div>
+                            </header>
+                            <div class="row zone-content">
+                                
+                                <div class="col-4 focus-col">
+                                    <% newSocietyBottomData.forEach(function(item) { %>
+                                    <a href="newDetail/<%= item.id  %>"><img src="../upload/<%= item.img %>" alt=""></a>
+                                    <div class="storytitle-links">
+                                        <a class=" story-title" href="newDetail/<%= item.id  %>"><%= item.title %></a>
+                                    </div>
+                                    
+
+                                    <% }); %>
+                                </div>
+
+                                <div class="col-8 story-news">
+                                    <% newSocietyBottomLeftData.forEach(function(item) { %>
+
+                                    <a href="newDetail/<%= item.id  %>">
+                                        <img src="../upload/<%= item.img %>" alt=""></a>
+                                    <div class="heading-title2">
+                                        <a class="story-title" href="newDetail/<%= item.id  %>"><%= item.title %></a>
+                                    </div>
+                                    <span class="summary titlespan"><%= item.content %></span>
+                                        <% }); %>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Economy -->
+                        <div class="kc"></div>
+                        <div class="zone-cate">
+                            
+                            <header class="zone-heading ">
+                                <ul>
+                                    <li><span style="color:#fcb500">E</span>CONOMY</li>
+                                </ul>
+                                <div class="line line2"></div>
+                            </header>
+                            <div class="row zone-content">
+                                
+                                <div class="col-4 focus-col">
+                                    <% newEconomyDataBottom.forEach(function(item) { %>
+                                    <a href="newDetail/<%= item.id  %>"><img src="../upload/<%= item.img %>" alt=""></a>
+                                    <div class="storytitle-links">
+                                        <a class=" story-title" href="newDetail/<%= item.id  %>"><%= item.title %></a>
+                                    </div>
+                                    
+
+                                    <% }); %>
+                                </div>
+
+                                <div class="col-8 story-news">
+                                    <% newEconomyDataBottomLeft.forEach(function(item) { %>
+                                    <a href="newDetail/<%= item.id  %>">
+                                        <img src="../upload/<%= item.img %>" alt=""></a>
+                                    <div class="heading-title2">
+                                        <a class="story-title" href="newDetail/<%= item.id  %>"><%= item.title %></a>
+                                    </div>
+                                    <span class="summary titlespan"><%= item.content %></span>
+                                        <% }); %>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="kc"></div>
+
+                        <div class="zone-cate">
+                            <header class="zone-heading ">
+                                <ul>
+                                    <li><span style="color:#fcb500">L</span>IFE & STYLE</li>
+                                </ul>
+                                <div class="line line2"></div>
+                            </header>
+                            <div class="row zone-content">
+                                <% newLifeStyleData.forEach(function(item) { %>
+                                <div class="style-col col-4">
+
+                                    <a class="style-col-link" href="newDetail/<%= item.id  %>">
+                                        <img src="../upload/<%= item.img %>" alt=""></a>
+                                    <a class="story-title" href="newDetail/<%= item.id  %>">
+                                        <span>
+                                        <%= item.title %>
+                                        </span>
+                                    </a>
+                                </div>
+                                <% }); %>
+                                <!--  -->
+                                
+<!--  -->
+                            </div>
+                        </div>
+                        <!-- sport -->
+                        <div class="kc"></div>
+                        <div class="zone-cate">
+                            <header class="zone-heading ">
+                                <ul>
+                                    <li><span style="color:#fcb500">S</span>PORTS</li>
+                                </ul>
+                                <div class="line line2"></div>
+                            </header>
+                            <div class="row zone-content">
+                                <% newSportData.forEach(function(item) { %>
+                                
+                                <div class=" col-7">
+                                    <div class="sport-col sport-col_imgg">
+                                        <a href="newDetail/<%= item.id  %>"><img src="../upload/<%= item.img %>" alt=""></a>
+
+                                    </div>
+                                </div>
+                                <div class="col-sports col-5">
+                                    <a class="story-title story-title-sport" href="newDetail/<%= item.id  %>">
+                                        <%= item.title %>
+                                    </a>
+                                    <br>
+                                    <span class="summary summary-sport titlespan" href=""><%= item.content %></span>
+                                </div>
+                                <% }); %>
+
+                            </div>
+                        </div>
+                        <!-- ENVIRONMENT -->
+                        <div class="kc"></div>
+                        <div class="zone-cate">
+                            <header class="zone-heading ">
+                                <ul>
+                                    <li><span style="color:#fcb500">E</span>NVIRONMENT</li>
+                                </ul>
+                                <div class="line line2"></div>
+                            </header>
+                            <div class="row zone-content">
+                                <% newEnvironmentData.forEach(function(item) { %>
+                                
+                                <div class=" col-7">
+                                    <div class="sport-col">
+                                        <a href="newDetail/<%= item.id  %>"><img class="img-environment" src="../upload/<%= item.img %>" alt=""></a>
+
+                                    </div>
+                                </div>
+                                <div class="col-sports col-5">
+                                    <a class="story-title story-title-sport" href="newDetail/<%= item.id  %>">
+                                        <%= item.title %>
+                                    </a>
+                                    <br>
+                                    <span class="summary summary-sport titlespan" href=""><%= item.content %></span>
+                                </div>
+                                <% }); %>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- bên phải -->
+                    <div class="content-right">
+                        <a  href="#"><img  class="content-right_img" src="../frontend/img/Banner/banner1.jpg" alt="" width="300px"
+                                height="420px"></a>
+                        <a href="#"><img class="content-right_img" src="../frontend/img/Banner/banner2.jpg" alt=""
+                                width="300px"></a>
+                        <a href="#"><img class="content-right_img" src="../frontend/img/Banner/banner3.jpg" alt=""
+                                width="300px"></a>
+                        <a href="#"><img class="content-right_img" src="../frontend/img/Banner/banner4.jpg" alt=""
+                                width="300px"></a>
+                        <a href="#">
+                            <img class="content-right_img"
+                                data-src="https://image.vietnamnews.vn/MediaUpload/Adv/2023/10/26/10202326160021_VietnamExpo.gif"
+                                alt=""
+                                src="https://image.vietnamnews.vn/MediaUpload/Adv/2023/10/26/10202326160021_VietnamExpo.gif">
+                        </a>
+                        <a href="#"><img class="content-right_img" src="../frontend/img/Banner/banner8.jpg" alt=""
+                                width="300px"></a>
+                        <a href="#"><img class="content-right_img" src="../frontend/img/Banner/banner9.jpg" alt=""
+                                width="300px"></a>
+                        <a href="#">
+                            <img class="content-right_img"
+                                data-src="https://image.vietnamnews.vn/MediaUpload/Adv/2023/10/20/10202320114822_Comp1.gif"
+                                alt=""
+                                src="https://image.vietnamnews.vn/MediaUpload/Adv/2023/10/20/10202320114822_Comp1.gif">
+                        </a>
+                        <div class="even">
+                            <a href="https://vietnamnews.vn/topic/hanoi-today/17" class="story__thumb"
+                                previewlistener="true">
+                                <span>Hanoi today</span> </a>
+                            <ul class="even-list">
+                                <li><a href="">Hà Nội’s Phú Xuyên District to celebrate its traditional crafts</a></li>
+                                <li><a href="">Off-road racing on the outskirts of Hà Nội</a></li>
+                                <li><a href="">Apartment prices in Hà Nội, HCM City on the rise amid limited supply</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- vietnam&japan -->
+                        <div class="even">
+                            <a href="https://vietnamnews.vn/topic/hanoi-today/17" class="story__thumb"
+                                previewlistener="true">
+                                <span>Vietnam-Japan Green Cooperation</span> </a>
+                            <ul class="even-list">
+                                <li><a href="">Japanese body strengthens collaboration to bolster green growth in VN</a>
+                                </li>
+                                <li><a href="">VN-Japan agriculture cooperation aims at 200-300 per cent growth
+                                    </a></li>
+                                <li><a href="">VN runs a pilot programme of Japanese agriculture in high school</a></li>
+                            </ul>
+                        </div>
+                        <!-- scoop -->
+                        <div class="even">
+                            <img class="bando" src="../frontend/img/Banner/banner10.jpg" width="100%" alt="">
+                            <a href="https://vietnamnews.vn/topic/hanoi-today/17" class="story__thumb"
+                                previewlistener="true">
+                                <span>Scoop</span> </a>
+                            <ul class="even-list">
+                                <li><a href="">Journalists work to spread love for Trường Sa</a></li>
+                                <li><a href="">Six streets in Hà Nội to be named after Trường Sa Archipelago’s islands
+                                    </a></li>
+                                <li><a href="">Việt Nam concerned about recent developments in East Sea: Diplomat</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- brandinfo -->
+                        <div class="even">
+                            <img class="bando" src="../frontend/img/Banner/banner11.jpg" width="100%" alt="">
+                            <a href="https://vietnamnews.vn/topic/hanoi-today/17" class="story__thumb"
+                                previewlistener="true">
+                                <span>Brandinfo</span> </a>
+                            <ul class="even-list">
+                                <li><a href="">CapitaLand Development introduces Lumi Hanoi, a 4,000-unit high-end
+                                        residential project in the West of Hanoi with a projected gross development
+                                        value of S$1 billion</a></li>
+                                <li><a href="">New visa policy for foreign tourists visiting Vietnam: more open and
+                                        convenient
+                                    </a></li>
+                                <li><a href="">Viessmann officially launches in Vietnam: Delivering comprehensive
+                                        sustainable water solutions</a></li>
+                            </ul>
+                        </div>
+                        <!-- nomnom -->
+                        <div class="even">
+                            <img class="bando"
+                                data-src="https://image.vietnamnews.vn/uploadvnnews//Adv/2019/7/19/nomnom.jpg"
+                                src="https://image.vietnamnews.vn/uploadvnnews//Adv/2019/7/19/nomnom.jpg" width="100%"
+                                alt="">
+                            <a href="https://vietnamnews.vn/topic/hanoi-today/17" class="story__thumb"
+                                previewlistener="true">
+                                <span>nomnom</span> </a>
+                            <ul class="even-list">
+                                <li><a href="">Let's get spicey</a></li>
+                                <li><a href="">Jelly mooncake
+                                    </a></li>
+                                <li><a href="">How virtual learning prepares students for the future that does not yet
+                                        exist</a></li>
+                            </ul>
+                        </div>
+                        <!-- quang ninh -->
+                        <div class="even">
+                            <a href="#" class="story__thumb" previewlistener="true">
+                                <span>Quang Ninh in focus</span> </a>
+                            <ul class="even-list">
+                                <li><a href="">PM pays visit to thermal power plants in Quảng Ninh</a></li>
+                                <li><a href="">Quảng Ninh Thermal Power sets profit target of $18 million this year
+                                    </a></li>
+                                <li><a href="">Quảng Ninh a bright spot in the implementation of action programmes of
+                                        the Vietnam Fatherland Front</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="height: 200px; width: 100%;"></div>
+            <!-- cuối trang -->
+            <footer class=" footer-info">
+                <img src="../frontend/img/Banner/banner12.jpg" alt="" style="padding-bottom: 20px;">
+                <div class="row">
+                    <div class="footer-info-left col">
+                        Copyrights 2012 Viet Nam News. All rights reserved.
+                        <br>Add:79 Ly Thuong Kiet Street, Ha Noi, Viet Nam. Editor_In_Chief: Nguyen Minh
+                        <br>Tel: 84-24-39332316 - Fax: 84-24-39332311 - E-mail: vnnews@vnagency.com.vn
+                        <br>Publication Permit: 141/GP-BTTTT.
+                    </div>
+                    <ul class="footer-info-right col">
+                        <li><a href="">Home</a></li>
+                        <li><a href="">About us</a></li>
+                        <li><a href="">Contact us                    </a></li>
+                        <li><a href="">RSS</a></li>
+                    </ul>
+                </div>
+            </footer>
+            <div id="backToTopBtn">↑</div>
+            <script>// Khi tài liệu HTML được tải xong
+                document.addEventListener("DOMContentLoaded", function() {
+                    var backToTopBtn = document.getElementById("backToTopBtn");
+        
+                    // Xác định khi nào nội dung được cuộn xuống đủ xa
+                    window.addEventListener("scroll", function() {
+                        if (window.pageYOffset > 100) {
+                            // Hiển thị nút "Back to Top"
+                            backToTopBtn.style.display = "block";
+                        } else {
+                            // Ẩn nút "Back to Top"
+                            backToTopBtn.style.display = "none";
+                        }
+                    });
+        
+                    // Di chuyển đến đầu trang khi nhấp vào nút "Back to Top"
+                    backToTopBtn.addEventListener("click", function() {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: "smooth"
+                        });
+                    });
+                });</script>
+            <script src="../frontend/js/slides.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+                integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+                integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+                crossorigin="anonymous"></script>
+</body>
+
+<script>
+    const searchInput = document.getElementById('search-input');
+  
+    function handleSearch() {
+      const searchTerm = searchInput.value.trim();
+  
+      if (searchTerm !== '') {
+        window.location.href = `/interFaceWeb/pageSearch?title=${searchTerm}`;
+      }
+    }
+  
+    searchInput.addEventListener('keypress', function (event) {
+      if (event.key === 'Enter') {
+        handleSearch();
+      }
+    });
+  
+    searchInput.addEventListener('focusout', handleSearch);
+</script>
+</html>

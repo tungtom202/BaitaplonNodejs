@@ -4,6 +4,8 @@ const Users = db.user;
 const Evaluate = db.evaluate;
 const Op = db.Sequelize.Op;
 const { getPagination, getPagingData } = require("./utils");
+const { QueryTypes } = require('sequelize');
+const authJwt =require("../middleware/authJwt")
 
 // Create and Save a new evaluate
 exports.create = (req, res) => {
@@ -19,7 +21,8 @@ exports.create = (req, res) => {
         comments: req.body.comments,
         likes: req.body.likes,
         userId: req.body.userId,
-        newsId: req.body.newsId
+        newsId: req.body.newsId,
+        email: req.body.email
     };
     // Save category in the database
     Evaluate.create(evaluate)
@@ -32,6 +35,54 @@ exports.create = (req, res) => {
             err.message || "Some error occurred while creating the category."
         });
     });
+};
+
+//create đưa ra giao diện
+exports.createEvaluate = async (req, res) => {
+  try {
+    // Validate request
+    if (!req.body.comments) {
+      res.status(400).send({
+        message: "Content can not be empty!"
+      });
+      return;
+    }
+
+    const evaluate = {
+      comments: req.body.comments,
+      likes: req.body.likes,
+      userId: req.body.userId,
+      newsId: req.body.newsId
+  };
+    const namebody = await Evaluate.create(evaluate);
+    return namebody;
+  } catch (err) {
+    throw new Error("An error occurred while creating the evaluate.");
+  }
+};
+
+//đánh giá trong news
+exports.createEvaluateNews = async (req, res, next) => {
+  try {
+    // Validate request
+    if (!req.body.comments) {
+      res.status(400).send({
+        message: "Content can not be empty!"
+      });
+      return;
+    }
+
+    const evaluate = {
+      email: req.body.email,
+      comments: req.body.comments,
+      newsId: req.body.newsId
+
+    };
+    const namebody = await Evaluate.create(evaluate);
+    return namebody;
+  } catch (err) {
+    next(err); // Chuyển lỗi tới middleware xử lý lỗi chung của ứng dụng
+  }
 };
 // Retrieve all evaluate from the database.
 exports.findAll = (req, res) => {
@@ -55,6 +106,30 @@ exports.findAll = (req, res) => {
       .catch(err => {
         res.status(500).send({
           message: err.message || "Some error occurred while retrieving data."
+        });
+      });
+  };
+// Retrieve all category from the database.
+exports.findbyQueryEvaluate = async (req, res) => {
+    const userDoc = await authJwt.userToken(req);
+    const name = userDoc.User.displayname;
+    const avarta = userDoc.User.avartar;
+
+    db.sequelize.query('SELECT * FROM evaluates', {
+      nest: true,
+      type: QueryTypes.SELECT,
+    })
+      .then(data => {
+        dataEvaluate = {
+          results: data,
+          name: name,
+          avarta: avarta
+        }
+        res.render('manageAdmin/evaluateAdmin.ejs', { dataEvaluate });
+      })
+      .catch(err => {
+        res.status(500).send({
+          message: err.message || 'Some error occurred while retrieving ecaluate.',
         });
       });
   };
@@ -118,6 +193,56 @@ exports.update = (req, res) => {
         });
     });
 };
+  //get theo id
+  exports.findEvaluateById = async (evaluateId) => {
+    try {
+      const data = await db.sequelize.query('SELECT * FROM evaluates WHERE id = :id', {
+        replacements: { id: evaluateId },
+        nest: true,
+        type: QueryTypes.SELECT,
+      });
+  
+      if (data.length === 0) {
+        throw new Error("Không tìm thấy danh mục.");
+      }
+  
+      console.log(data);
+      return data;
+    } catch (err) {
+      console.error(err);
+      throw new Error("Đã xảy ra lỗi trong quá trình lấy thông tin danh mục.");
+    }
+  };
+//update ra giao diện
+exports.updateEvaluate = async (req, res) => {
+  const id = req.params.id;
+  const namebody = await Evaluate.update(req.body, {
+    where: { id: id }
+})
+  return namebody;
+};
+//delete giao diện
+//xóa theo id sau đó hiển thị giao diện
+exports.deleteid = (req, res) => {
+    const id = req.params.id;
+    Evaluate.destroy({
+      where: { id: id }
+    })
+      .then(num => {
+        if (num == 1) {
+          res.redirect("/manageAdmin/evaluateAdmin"); // Chuyển hướng đến trang giao diện mong muốn
+        } else {
+          res.send({
+            message: `Cannot delete Evaluate with id=${id}. Maybe Evaluate was not found!`
+          });
+        }
+      })
+      .catch(err => {
+        res.status(500).send({
+          message: "Could not delete Evaluate with id=" + id
+        });
+      });
+  };
 // Delete a category with the specified id in the request
 exports.delete = (req, res) => {
     const id = req.params.id;
@@ -156,4 +281,17 @@ exports.deleteAll = (req, res) => {
             err.message || "Some error occurred while removing all Evaluate."
         });
     });
+};
+
+// đếm comment
+exports.countPostCommment = async () => {
+  try {
+    const data = await db.sequelize.query('SELECT COUNT(*) AS total_comment FROM evaluates', {
+      type: QueryTypes.SELECT,
+    });
+
+    return data[0].total_comment; // Trả về giá trị số lượng bài viết từ đối tượng đầu tiên trong mảng
+  } catch (err) {
+    throw new Error(err.message || 'Some error occurred while retrieving Comment.');
+  }
 };

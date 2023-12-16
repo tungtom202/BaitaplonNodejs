@@ -21,7 +21,9 @@ module.exports = (sequelize, Sequelize) => {
         poststatus: {
             type: Sequelize.STRING
         },
-
+        userId: {
+            type: Sequelize.STRING
+        },
     });
     return News;
 };

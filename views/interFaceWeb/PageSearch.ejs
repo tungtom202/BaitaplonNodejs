@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang tìm kiếm</title>
+    <link rel="stylesheet" href="../../frontend/css/style.css">
+    <link rel="stylesheet" href="../../frontend/css/slide.css">
+    <link rel="stylesheet" href="../../frontend/css/trangcon.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/iconnew.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/e30bada3ef.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body>
+
+    <!-- đầu trang -->
+    <header class="site-header">
+        <div class="topbar">
+            <div class="grid container">
+                <div class="row row-auto">
+                    <!-- ngày - tháng - năm -->
+                    <div id="currentDate" class="me-auto col">
+                        <!-- Friday, October 27 2023 -->
+                    </div>
+                    <ul class="ms-auto col">
+                        <li><a href="">News</a></li>
+                        <li><a href="">bizhub.vn</a></li>
+                        <li><a href="">ovietnam.vn</a></li>
+                        <li><a href="">About Us</a></li>
+                        <li><a href="">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="site-header__content">
+            <div class="site-header__content-container container">
+                <div class="row site-header__content-row">
+                    <div class="site-header__content-logo logotop1" style="width: 234px; padding: 0;">
+                        <a href="">
+                            <img src="../../frontend/img/dacsanvungmien.png" alt="">
+                        </a>
+                    </div>
+                    <div class="site-header__content-logo logotop2" style="width: 310px; padding: 0;">
+                        <a href="">
+                            <img src="../../frontend/img/vietnamnews.JPG" alt="">
+                        </a>
+                    </div>
+                    <div class="site-header__content-logo logotop3" style="width: 234px; padding: 0;">
+                        <a href="">
+                            <img src="../../frontend/img/km.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="site-header_nav">
+            <div class="container-fluid l-grid site-header_nav-container">
+                <a href="./homeFace" class="nav-item"><i class="fa-solid fa-house"></i></a>
+                <% topicData.forEach(function(item) { %>
+                    <a href="./topicFace/<%= item.id %>" class="nav-item"><%= item.name %></a>
+                    <% }); %>
+
+            </div>
+            <!-- nav-ultilites -->
+            <div class="nav-ultilites navbar ">
+                <div class="container-fluid navbar-container">
+
+                    <div class="blox-relative">
+                        <div class="search-form">
+                            <input id="search-input" class="form-control" placeholder="Tìm kiếm...">
+                          </div>
+                    
+                        <!-- social -->
+                        <div class="social">
+                            <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href=""><i class="fa-brands fa-twitter"></i></a>
+                            <a href=""><i class="fa-brands fa-youtube"></i></a>
+                            <a href=""><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <!-- dropdown -->
+                    <div class="dropdown">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <div class="container container_content">
+        <div class="site-content">
+            
+            <!-- bên trái -->
+            <div class="content-left">
+                <div class="slick-track">
+                    <div class="slick-meta">
+                        <div class="w3-content w3-section">
+                            
+                            <div class="breadcrumbs">
+
+                                <a href="#">HOME </a> <i class="fa-solid fa-chevron-right"></i>
+                                <a href="#" style="text-transform: uppercase;"> Search</a> 
+                                
+                            </div>
+                            
+                            <div class="detail_contentnew" >
+                                <div class="row">
+                                    <div class="col-10">
+                                        <% searchData.forEach(function(item) { %>
+                                            <form class="form-horizontal form-material" action="../newDetail/<%= item.id %>"  enctype="multipart/form-data">
+                                                
+                                                <a href="#" style="text-transform: uppercase; font-size: 13px; color:blue; text-decoration: none;"> <%= item.genre %></a> 
+                                        <div class="card mb-3 card_page">
+                                          <div class="row no-gutters">
+                                            <div class="col-md-4">
+                                                <a href="./newDetail/<%= item.id  %>">
+                                                    <img class="img_pages" src="../../upload/<%= item.img %>" alt="" >
+                                                </a>
+                                            </div>
+                                            <div class="col-md-8">
+                                              <div class="card-body">
+                                                <a href="./newDetail/<%= item.id  %>" class="link_search_page" >
+                                                    <h5 class="card-title card-title_page"><%= item.title %></h5>
+                                                </a>
+                                                <p class="card-text titlespan"><%= item.content %></p>
+                                                <p class="card-text"><small class="text-muted">Last updated 10 mins ago</small></p>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        
+                                    </form>
+                                    <% }); %>
+                                        <div class="lenhangg">
+                                            <div class="btn_like">
+                                                <i class="fa-solid fa-thumbs-up"></i>
+                                                <span>
+                                                    Like 5
+                                                </span>
+                                            </div> 
+                                            <div class="btn_like">
+                                                <span>
+                                                    Share
+                                                </span>
+                                                <i class="fa-solid fa-share"></i>
+                                            </div>
+                                        </div>
+                                        <!-- đánh giá -->
+                                    </div>
+                                   
+                                    <div class="col-3">
+
+                                    </div>
+
+                                 </div>
+                            </div>
+                        </div>
+                       
+                       
+                        
+                        <div class="zone-cate">
+                            
+                            <div class="row zone-content">
+                                
+                                <!-- 2 -->
+                               
+                                <!-- 3 -->
+                                
+                                <!-- 4 -->
+                                
+                                <!-- 5 -->
+                                
+
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <!-- bên phải -->
+                    <div class="content-right">
+                        <a href="#"><img class="content-right_img" src="../../frontend/img/Banner/banner1.jpg" alt="" width="300px"
+                                height="420px"></a>
+                        <a href="#"><img class="content-right_img" src="../../frontend/img/Banner/banner2.jpg" alt=""
+                                width="300px"></a>
+                        <a href="#"><img class="content-right_img" src="../../frontend/img/Banner/banner3.jpg" alt=""
+                                width="300px"></a>
+                        <a href="#"><img class="content-right_img" src="../../frontend/img/Banner/banner4.jpg" alt=""
+                                width="300px"></a>
+                        <a href="#">
+                            <img class="content-right_img"
+                                data-src="https://image.vietnamnews.vn/MediaUpload/Adv/2023/10/26/10202326160021_VietnamExpo.gif"
+                                alt=""
+                                src="https://image.vietnamnews.vn/MediaUpload/Adv/2023/10/26/10202326160021_VietnamExpo.gif">
+                        </a>
+                        <a href="#"><img class="content-right_img" src="../../frontend/img/Banner/banner8.jpg" alt=""
+                                width="300px"></a>
+                        <a href="#"><img class="content-right_img" src="../../frontend/img/Banner/banner9.jpg" alt=""
+                                width="300px"></a>
+                        <a href="#">
+                            <img class="content-right_img"
+                                data-src="https://image.vietnamnews.vn/MediaUpload/Adv/2023/10/20/10202320114822_Comp1.gif"
+                                alt=""
+                                src="https://image.vietnamnews.vn/MediaUpload/Adv/2023/10/20/10202320114822_Comp1.gif">
+                        </a>
+                        <div class="even">
+                            <a href="https://vietnamnews.vn/topic/hanoi-today/17" class="story__thumb"
+                                previewlistener="true">
+                                <span>Hanoi today</span> </a>
+                            <ul class="even-list">
+                                <li><a href="">Hà Nội’s Phú Xuyên District to celebrate its traditional crafts</a></li>
+                                <li><a href="">Off-road racing on the outskirts of Hà Nội</a></li>
+                                <li><a href="">Apartment prices in Hà Nội, HCM City on the rise amid limited supply</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- vietnam&japan -->
+                        <div class="even">
+                            <a href="https://vietnamnews.vn/topic/hanoi-today/17" class="story__thumb"
+                                previewlistener="true">
+                                <span>Vietnam-Japan Green Cooperation</span> </a>
+                            <ul class="even-list">
+                                <li><a href="">Japanese body strengthens collaboration to bolster green growth in VN</a>
+                                </li>
+                                <li><a href="">VN-Japan agriculture cooperation aims at 200-300 per cent growth
+                                    </a></li>
+                                <li><a href="">VN runs a pilot programme of Japanese agriculture in high school</a></li>
+                            </ul>
+                        </div>
+                        <!-- scoop -->
+                        <div class="even">
+                            <img class="bando" src="../../frontend/img/Banner/banner10.jpg" width="100%" alt="">
+                            <a href="https://vietnamnews.vn/topic/hanoi-today/17" class="story__thumb"
+                                previewlistener="true">
+                                <span>Scoop</span> </a>
+                            <ul class="even-list">
+                                <li><a href="">Journalists work to spread love for Trường Sa</a></li>
+                                <li><a href="">Six streets in Hà Nội to be named after Trường Sa Archipelago’s islands
+                                    </a></li>
+                                <li><a href="">Việt Nam concerned about recent developments in East Sea: Diplomat</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- brandinfo -->
+                        <div class="even">
+                            <img class="bando" src="../../frontend/img/Banner/banner11.jpg" width="100%" alt="">
+                            <a href="https://vietnamnews.vn/topic/hanoi-today/17" class="story__thumb"
+                                previewlistener="true">
+                                <span>Brandinfo</span> </a>
+                            <ul class="even-list">
+                                <li><a href="">CapitaLand Development introduces Lumi Hanoi, a 4,000-unit high-end
+                                        residential project in the West of Hanoi with a projected gross development
+                                        value of S$1 billion</a></li>
+                                <li><a href="">New visa policy for foreign tourists visiting Vietnam: more open and
+                                        convenient
+                                    </a></li>
+                                <li><a href="">Viessmann officially launches in Vietnam: Delivering comprehensive
+                                        sustainable water solutions</a></li>
+                            </ul>
+                        </div>
+                        <!-- nomnom -->
+                        <div class="even">
+                            <img class="bando"
+                                data-src="https://image.vietnamnews.vn/uploadvnnews//Adv/2019/7/19/nomnom.jpg"
+                                src="https://image.vietnamnews.vn/uploadvnnews//Adv/2019/7/19/nomnom.jpg" width="100%"
+                                alt="">
+                            <a href="https://vietnamnews.vn/topic/hanoi-today/17" class="story__thumb"
+                                previewlistener="true">
+                                <span>nomnom</span> </a>
+                            <ul class="even-list">
+                                <li><a href="">Let's get spicey</a></li>
+                                <li><a href="">Jelly mooncake
+                                    </a></li>
+                                <li><a href="">How virtual learning prepares students for the future that does not yet
+                                        exist</a></li>
+                            </ul>
+                        </div>
+                        <!-- quang ninh -->
+                        <div class="even">
+                            <a href="#" class="story__thumb" previewlistener="true">
+                                <span>Quang Ninh in focus</span> </a>
+                            <ul class="even-list">
+                                <li><a href="">PM pays visit to thermal power plants in Quảng Ninh</a></li>
+                                <li><a href="">Quảng Ninh Thermal Power sets profit target of $18 million this year
+                                    </a></li>
+                                <li><a href="">Quảng Ninh a bright spot in the implementation of action programmes of
+                                        the Vietnam Fatherland Front</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!-- cuối trang -->
+            <footer class=" footer-info">
+                <img src="../../frontend/img/Banner/banner12.jpg" alt="" style="padding-bottom: 20px;">
+                <div class="row">
+                    <div class="footer-info-left col">
+                        Copyrights 2012 Viet Nam News. All rights reserved.
+                        <br>Add:79 Ly Thuong Kiet Street, Ha Noi, Viet Nam. Editor_In_Chief: Nguyen Minh
+                        <br>Tel: 84-24-39332316 - Fax: 84-24-39332311 - E-mail: vnnews@vnagency.com.vn
+                        <br>Publication Permit: 141/GP-BTTTT.
+                    </div>
+                    <ul class="footer-info-right col">
+                        <li><a href="">Home</a></li>
+                        <li><a href="">About us</a></li>
+                        <li><a href="">Contact us                    </a></li>
+                        <li><a href="">RSS</a></li>
+                    </ul>
+                </div>
+            </footer>
+            <script src="../../frontend/js/slides.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+                integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+                integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+                crossorigin="anonymous"></script>
+</body>
+<script>
+    // ngày giờ trực tiếp 
+window.addEventListener('DOMContentLoaded', (event) => {
+    var currentDate = new Date();
+    var daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    var monthsOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  
+    var dayOfWeek = daysOfWeek[currentDate.getDay()];
+    var month = monthsOfYear[currentDate.getMonth()];
+    var dayOfMonth = currentDate.getDate();
+    var year = currentDate.getFullYear();
+  
+    var formattedDate = dayOfWeek + ', ' + month + ' ' + dayOfMonth + ' ' + year;
+  
+    document.getElementById('currentDate').textContent = formattedDate;
+  });
+</script>
+<script>
+    const searchInput = document.getElementById('search-input');
+  
+    function handleSearch() {
+      const searchTerm = searchInput.value.trim();
+  
+      if (searchTerm !== '') {
+        window.location.href = `/interFaceWeb/pageSearch?title=${searchTerm}`;
+      }
+    }
+  
+    searchInput.addEventListener('keypress', function (event) {
+      if (event.key === 'Enter') {
+        handleSearch();
+      }
+    });
+  
+    searchInput.addEventListener('focusout', handleSearch);
+</script>
+
+</html>

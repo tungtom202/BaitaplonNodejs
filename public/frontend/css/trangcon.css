@@ -1,0 +1,157 @@
+
+.breadcrumbs{
+    margin-right: 20px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    margin-bottom: 20px;
+    background: #f7f7f7;
+    border-radius: 5px;
+}
+.breadcrumbs a{
+    color: #333;
+    font-size: 12px;
+    text-decoration: none;
+}
+.breadcrumbs i{
+    font-size: 10px;
+    padding: 0 10px;
+}
+.headline h1{
+    font-family: PlayfairDisplay,serif;
+    font-weight: 600;
+    
+}
+.detail__meta{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.datetime{
+    font-family: Roboto,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    color: #666;
+    font-weight: 300;
+    margin-right: auto;
+}
+.detail__meta-sosical i:first-child{
+    color: #3b5998;
+    padding: 0 6px;
+}
+.detail__meta-sosical i:last-child{
+    color: #4099ff;
+}
+
+.sapoo{
+    font-size: 18px;
+    font-family: Roboto,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    color: #000;
+}
+.title_imge{
+    font-size: 14px;
+    line-height: 24px;
+    color: #666;
+    padding-top: 10px;
+}
+.hrr{
+    color: #333;
+}
+.Content__detail{
+    font-family: Roboto,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+    color: #000;
+    font-weight: 300;
+    margin-top: 40px;
+}
+.lenhangg{
+    display: flex;
+    border-top: 1px solid #d8d5d5;
+    border-bottom: 1px solid #d8d5d5;
+    padding: 20px 0;
+}
+.btn_like{
+    margin-right: 10px;
+    background-color: #1877f2;
+    width: 70px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    font-size: 11px;
+    color: #fff;
+}
+.btn_like span{
+    padding: 0 4px;
+
+}
+.tags{
+    font-weight: 500;
+    text-transform: uppercase;
+    background: #fcb500;
+    padding: 4px 10px;
+    width: 50px;
+    color: #fff;
+    font-size: 11px;
+    text-align: center;
+    margin-top: 15px;
+}
+.form_input{
+    margin-bottom: 30px;
+}
+.form-group-input{
+    margin-right: 20px;
+    justify-content: space-between;
+    display: flex;
+
+}
+.form-group-input input{
+    width: 400px !important;
+
+}
+.textarea_input{
+    width: 98%;
+    border-radius: 6px;
+    margin:25px 0 5px 0px;
+    font-family: Roboto,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 12px 15px;
+    height: 100px;
+    border-color: #ddd;
+    
+}
+.textarea_input:focus{
+    outline: 2px solid #4099ff;
+
+}
+
+.card-title_page{
+    font-weight: bold;
+}
+.card_page{
+    border: none !important;
+}
+.img_pages{
+    width: 230px;
+    padding: 30px 0 ;
+}
+.img_pages:hover{
+    opacity: 0.9;
+}
+.link_search_page{
+    text-decoration: none;
+    
+}
+.footer-info{
+    background-color: #0066b3; 
+    width: 100%;
+    padding: 20px 70px 20px;
+    margin-top: 20px ;
+    color: #ffffff;
+    font-size: 14px;
+    font-family: Poppins,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
